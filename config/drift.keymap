@@ -35,6 +35,22 @@
         };
     };
 
+    macros {
+        lock: lock {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kt LEFT_WIN &kp L>;
+            label = "LOCK";
+        };
+
+        lockmacos: lockmacos {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kt LCTRL &kt LEFT_COMMAND &kp Q>;
+            label = "LOCKMACOS";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -72,11 +88,11 @@
             //                                        | SHIFT | SPACE | LOWER |                   | RAISE | SPACE | BKSPC |
 
             bindings = <
-&bootloader  &kp ESC    &kp GRAVE  &kp F1  &kp F2  &kp F3     &kp F4     &kp F5                          &kp F6  &kp F7     &kp F8     &kp F9   &kp F10   &kp F11   &kp F12        &kp BSPC
-&kp LC(C)    &trans     &kp TAB    &kp Q   &kp W   &kp E      &kp R      &kp T                           &kp Y   &kp U      &kp I      &kp O    &kp P     &kp LBKT  &kp BACKSLASH  &kp BSLH
-             &kp LGUI   &kp CAPS   &kp A   &kp S   &kp D      &kp F      &kp G                           &kp H   &kp J      &kp K      &kp L    &kp SEMI  &kp SQT   &kp UP
-&kp LC(V)    &kp LCTRL  &kp LALT   &kp Z   &kp X   &kp C      &kp V      &kp B   &kp C_MUTE  &kp C_MUTE  &kp N   &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp LEFT  &kp DOWN       &kp RIGHT
-                                                   &kp LSHFT  &kp SPACE  &trans                          &trans  &kp SPACE  &kp DEL
+&bootloader  &kp ESC    &kp GRAVE  &kp F1  &kp F2  &kp F3     &kp F4     &kp F5                          &kp F6  &kp F7      &kp F8     &kp F9   &kp F10   &kp F11   &kp F12        &kp BSPC
+&kp LC(C)    &trans     &kp TAB    &kp Q   &kp W   &kp E      &kp R      &kp T                           &kp Y   &kp U       &kp I      &kp O    &kp P     &kp LBKT  &kp BACKSLASH  &kp BSLH
+             &kp LGUI   &kp CAPS   &kp A   &kp S   &kp D      &kp F      &kp G                           &kp H   &kp J       &kp K      &kp L    &kp SEMI  &kp SQT   &kp UP
+&kp LC(V)    &kp LCTRL  &kp LALT   &kp Z   &kp X   &kp C      &kp V      &kp B   &kp C_MUTE  &kp C_MUTE  &kp N   &kp M       &kp COMMA  &kp DOT  &kp FSLH  &kp LEFT  &kp DOWN       &kp RIGHT
+                                                   &kp LSHFT  &kp SPACE  &trans                          &trans  &lockmacos  &lock
             >;
 
             sensor-bindings =
